@@ -20,7 +20,7 @@ abstract class UtilsFoundation
 	 *
 	 * Constructor.
 	 */
-	public function __construct(Facebook $fb)
+	public function __construct(Facebook &$fb)
 	{
 		$this->fb = $fb;
 	}

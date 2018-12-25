@@ -18,22 +18,22 @@ final class Facebook
 	/**
 	 * @var string
 	 */
-	private $email;
+	public $email;
 
 	/**
 	 * @var string
 	 */
-	private $password;
+	public $password;
 
 	/**
 	 * @var string
 	 */
-	private $cookieFile;
+	public $cookieFile;
 
 	/**
 	 * @var string
 	 */
-	private $prefixUrl = "m";
+	public $prefixUrl = "m";
 
 	/**
 	 * @param string $email

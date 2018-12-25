@@ -17,6 +17,6 @@ class Login extends UtilsFoundation
 	 */
 	public function login(): string
 	{
-		
+		$this->fb->exe("/login.php");
 	}
 }
