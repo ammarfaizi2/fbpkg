@@ -2,6 +2,7 @@
 
 namespace Fbpkg;
 
+use Fbpkg\FacebookUtils\Login;
 use Fbpkg\Exceptions\FacebookException;
 
 /**
@@ -64,7 +65,7 @@ final class Facebook
 
 	/**
 	 * @param string $path
-	 * @param array  $opt
+	 * @param array $opt
 	 * @return array
 	 */
 	public function exe(string $path, array $opt = []): array
@@ -111,5 +112,35 @@ final class Facebook
 			"error" => $error,
 			"errno" => $errno
 		];
+	}
+
+	/**
+	 * @param \Fbpkg\UtilsFoundation $obj
+	 * @param string $method
+	 * @param array $parameters
+	 * @return mixed
+	 */
+	private function safeCall(UtilsFoundation $obj, string &$method, array &$parameters)
+	{
+		return call_user_func_array([$obj, $method], $parameters);
+	}
+
+	/**
+	 * @param string $method
+	 * @param array $parameters
+	 * @return mixed
+	 */
+	public function __call(string $method, array $parameters = [])
+	{
+		switch ($method) {
+			case "login":
+				$o = new Login($this);
+				break;
+			default:
+				throw new FacebookException("Invalid method {$method}");
+				break;
+		}
+
+		return $this->safeCall($o, $method, $parameters);
 	}
 }

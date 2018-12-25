@@ -10,6 +10,6 @@ use Exception;
  * @version 0.0.1
  * @package \Fbpkg\Exceptions
  */
-class FacebookExceptions extends Exception
+class FacebookException extends Exception
 {
 }
