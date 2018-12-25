@@ -1,1 +1,8 @@
+*.o
+*.swo
+*.swp
+*.tmp
+*.log
+/credential.php
+/.phpintel/
 /vendor/
