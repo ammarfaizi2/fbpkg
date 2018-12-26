@@ -27,7 +27,7 @@ $st->httpDispatch(
 		"sudo_protect" => function () {
 			$uri = $_SERVER["REQUEST_URI"];
 			return 
-				preg_match("/messages|notification|confirm|buddylist|groups|pages|settings|like|reactions|add_friend|pymk|logout/i", $uri) ||
+				preg_match("/delete|messages|notification|confirm|buddylist|groups|pages|settings|like|reactions|add_friend|pymk|logout/i", $uri) ||
 				$_SERVER["REQUEST_METHOD"] !== "GET";
 		}
 	]
