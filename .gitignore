@@ -3,6 +3,7 @@
 *.swp
 *.tmp
 *.log
+/public/access_logs.txt
 /credential.php
 /fb_sudo_passwd.php
 /.phpintel/
