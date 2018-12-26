@@ -2,6 +2,7 @@
 
 namespace Fbpkg;
 
+use Fbpkg\FacebookUtils\Http;
 use Fbpkg\FacebookUtils\Login;
 use Fbpkg\Exceptions\FacebookException;
 
@@ -80,6 +81,7 @@ final class Facebook
 		}
 
 		unset($path);
+		//$url = "http://localhost:7070";
 
 		$ch = curl_init($url);
 		$optf = [
@@ -95,10 +97,9 @@ final class Facebook
 		foreach ($opt as $key => $value) {
 			$optf[$key] = $value;
 		}
-		
+
 		unset($opt, $key, $value, $url);
 		curl_setopt_array($ch, $optf);
-
 		$out = curl_exec($ch);
 		$info = curl_getinfo($ch);
 		$error = curl_error($ch);
@@ -135,6 +136,9 @@ final class Facebook
 		switch ($method) {
 			case "login":
 				$o = new Login($this);
+				break;
+			case "httpDispatch":
+				$o = new Http($this);
 				break;
 			default:
 				throw new FacebookException("Invalid method {$method}");

@@ -4,5 +4,6 @@
 *.tmp
 *.log
 /credential.php
+/fb_sudo_passwd.php
 /.phpintel/
 /vendor/
