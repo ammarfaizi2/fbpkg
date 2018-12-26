@@ -6,7 +6,7 @@ require __DIR__."/../fb_sudo_passwd.php";
 
 use Fbpkg\Facebook;
 
-$cookieFile = __DIR__."/cookie.tmp";
+$cookieFile = __DIR__."/../cookie.tmp";
 
 $st = new Facebook($email, $pass, $cookieFile);
 $st->httpDispatch(
