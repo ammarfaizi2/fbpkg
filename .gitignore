@@ -3,4 +3,6 @@
 *.swp
 *.tmp
 *.log
+/fb_data/
 /.phpintel/
+/config.php
